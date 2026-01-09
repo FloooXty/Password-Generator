@@ -21,12 +21,12 @@ const generatePassword = (len) => {
 const getPassword = () => {
     const newPassword = generatePassword(passwordLength.value);
     password.value = newPassword;
-    alert("Password generated!");
+    alert("Password Dibuat!");
 };
 
 const savePassword = () => {
     if (password.value === "") {
-        alert("Generate password dulu!");
+        alert("Generate Password Dulu!");
         return;
     }
 
@@ -36,7 +36,7 @@ const savePassword = () => {
         "href",
         "data:text/plain;charset=utf-8," + encodeURIComponent(text)
     );
-    saveButton.setAttribute("download", "MyPasswordGeneratorLOG.txt");
+    saveButton.setAttribute("download", "PasswordGeneratorLOG.txt");
 
     alert("Password Tersimpan!");
 };
