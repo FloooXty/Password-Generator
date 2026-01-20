@@ -3,24 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PASSWORD GENERATOR</title>
+    <title>Password Generator</title>
+
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"/>
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at top, #1e293b, #020617);
+            color: #e5e7eb;
+        }
+
+        .card-password {
+            background: #1e293b;
+            border-radius: 18px;
+            padding: 32px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+        }
+
+        h1 {
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: 1px;
+            margin-bottom: 28px;
+            color: #38bdf8;
+        }
+
+        label {
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            color: #cbd5f5;
+        }
+
+        input {
+            background: #020617 !important;
+            border: 1px solid #334155;
+            color: #e5e7eb !important;
+            border-radius: 10px !important;
+        }
+
+        input::placeholder {
+            color: #64748b;
+        }
+
+        input:focus {
+            border-color: #38bdf8;
+            box-shadow: 0 0 0 2px rgba(56,189,248,0.25);
+        }
+
+        .btn-generate {
+            background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+            border: none;
+            border-radius: 12px;
+            color: #020617;
+            transition: all 0.3s ease;
+        }
+
+        .btn-generate:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+
+        .btn-save {
+            background: transparent;
+            border: 1px solid #38bdf8;
+            color: #38bdf8;
+            border-radius: 12px;
+        }
+
+        .btn-save:hover {
+            background: #38bdf8;
+            color: #020617;
+        }
+
+        .footer-text {
+            text-align: center;
+            font-size: 0.75rem;
+            margin-top: 18px;
+            color: #94a3b8;
+        }
+    </style>
 </head>
 <body>
-    <div class="container d-flex justify-content-center align-items-center min-vh-100">
-        <div class="d-flex flex-column">
-            <h1>PASSWORD GENERATOR</h1>
-            <div class="d-flex flex-column gap-2 mt-2">
-                <label for="passwordLength" class="text-uppercase fw-bold">Panjang Password</label> 
-                <input class="form-control form-control-lg" id="passwordLength" type="number"/>
-                <label for="password" class="text-uppercase fw-bold">Password</label> 
-                <input class="form-control form-control-lg" id="password"/>
-                <button class="btn btn-dark text-uppercase fw-bold btn-lg mt-2" onclick="getPassword()">generate password</button>
-                <a class="btn btn-primary text-uppercase fw-bold btn-lg mt-2" onclick="savePassword()" id="saveButton">save password</a>
-            </div>
+
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card-password">
+        <h1>PASSWORD GENERATOR</h1>
+
+        <div class="mb-3">
+            <label for="passwordLength" class="text-uppercase fw-bold">Panjang Password</label>
+            <input type="number" class="form-control form-control-lg mt-1"
+                   id="passwordLength" placeholder="Contoh: 8">
+        </div>
+
+        <div class="mb-3">
+            <label for="password" class="text-uppercase fw-bold">Password</label>
+            <input type="text" class="form-control form-control-lg mt-1"
+                   id="password" readonly>
+        </div>
+
+        <button class="btn btn-lg w-100 fw-bold text-uppercase btn-generate"
+                onclick="getPassword()">
+            Generate Password
+        </button>
+
+        <button class="btn btn-lg w-100 fw-bold text-uppercase mt-2 btn-save"
+                onclick="savePassword()">
+            Save Password
+        </button>
+
+        <div class="footer-text">
+            Secure • Comfortable • Modern
         </div>
     </div>
-    <script src="index.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</div>
+
+<script src="index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
